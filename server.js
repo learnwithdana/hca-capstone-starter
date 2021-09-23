@@ -484,7 +484,7 @@ app.post("/api/users", urlencodedParser, function (req, res) {
 
     // check for duplicate username
     let matchingUser = data.find(user => user.username.toLowerCase() == req.body.username.toLowerCase());
-    if (!matchingUser) {
+    if (matchingUser) {
         // username already exists
         console.log("ERROR: username already exists!");
         res.status(403).send();   // forbidden - 403 has no message; programmers should
